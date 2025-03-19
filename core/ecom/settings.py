@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-!l85tix#%h(m=t)+5_7@+s_pxk2wr#s$yvj9#rep60al7&iwbv
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
- 
 ALLOWED_HOSTS = []
 
 
@@ -38,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+
+    # Third-party apps
+    'core.apps.users',
+
 ]
 
 MIDDLEWARE = [
@@ -50,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.ecom.urls'
+ROOT_URLCONF = 'core.api.urls'
 
 TEMPLATES = [
     {
@@ -129,3 +133,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
