@@ -31,3 +31,15 @@ class User(AbstractUser):
     )
     
     objects = CustomUserManager()
+
+    def __str__(self, *args, **kwargs):
+        if self.phone_number:
+            return self.phone_number
+        return self.username
+    
+    def phone_no(self, *args, **kwargs):
+        if self.phone_number:
+            return self.phone_number
+        return self.username
+    
+    
