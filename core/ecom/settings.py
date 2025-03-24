@@ -155,3 +155,10 @@ SIMPLE_JWT = {
     'TOKEN_LIFETIME': timedelta(minutes=35),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
+
+
+# Custom Backend
+AUTHENTICATION_BACKENDS = (
+    'core.apps.users.backends.PhoneBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
