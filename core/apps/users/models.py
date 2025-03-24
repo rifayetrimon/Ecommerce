@@ -9,7 +9,7 @@ class CustomUserManager(BaseUserManager):
         if not username:
             username = uuid.uuid4().hex[:10]
         email = self.normalize_email(email)
-        user = self.model(username=username, email=email, **kwargs)
+        user = self.model(username=username, email=email, **kwargs) 
         user.set_password(password)
         user.save()
         return user
@@ -19,7 +19,7 @@ class CustomUserManager(BaseUserManager):
         kwargs.setdefault("is_superuser", True)
         return self.create_user(username, email, password, **kwargs)
 
-
+ 
 class User(AbstractUser):
     phone_number = models.CharField(
         max_length=15,
@@ -37,9 +37,8 @@ class User(AbstractUser):
             return self.phone_number
         return self.username
     
-    def phone_no(self, *args, **kwargs):
+    def phone_no(self, *args, **kwargs): 
         if self.phone_number:
             return self.phone_number
         return self.username
-    
     
