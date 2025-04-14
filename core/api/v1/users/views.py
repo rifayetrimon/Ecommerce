@@ -4,9 +4,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from core.apps.users.serializers import UserRegistrationSerializer, UserDetailsSearializer, PhoneTokenObtainPairSerializer, CustomRefreshTokenSearializer
 
 
-
 User = get_user_model()
-
 
 class UserRegistrationView(generics.CreateAPIView):
     queryset = User.objects.all()
