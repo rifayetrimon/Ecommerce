@@ -1,4 +1,4 @@
 django==4.2
 django-restframework==0.0.1
 djangorestframework-simplejwt
-
+Pillow
