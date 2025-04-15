@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     # first-party apps
     'core.apps.users',
+    'core.apps.products',
 
 
     # third-party apps

@@ -14,7 +14,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer): # user registrati
 
     class Meta:
         model = User
-        fields = ('phone_number', 'password', 'password2')
+        fields = ('phone_number', 'password', 'password2', 'first_name', 'last_name', 'email')
     
     def validate_phone_number(self, value):
         if User.objects.filter(phone_number=value).exists():
@@ -41,7 +41,7 @@ class UserDetailsSearializer(serializers.ModelSerializer): # user details serial
         fields = ('phone_number', 'username', 'email', 'first_name', 'last_name')
 
 
-class PhoneTokenObtainPairSerializer(TokenObtainPairSerializer):
+class PhoneTokenObtainPairSerializer(TokenObtainPairSerializer): # phone token obtain pair serializer
     username_field = 'phone_number'
 
     def validate(self, attrs): 
