@@ -6,13 +6,12 @@ from core.apps.users.serializers import UserRegistrationSerializer, UserDetailsS
 
 User = get_user_model()
 
-class UserRegistrationView(generics.CreateAPIView):
+class UserRegistrationView(generics.CreateAPIView): # user registration view
     queryset = User.objects.all()
     serializer_class = UserRegistrationSerializer
 
 
-
-class UserDetailsView(generics.RetrieveAPIView):
+class UserDetailsView(generics.RetrieveAPIView): # user details view
     serializer_class = UserDetailsSearializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -20,9 +19,9 @@ class UserDetailsView(generics.RetrieveAPIView):
         return self.request.user
 
 
-class PhoneTokenObtainPairView(TokenObtainPairView):
+class PhoneTokenObtainPairView(TokenObtainPairView): # phone token obtain pair view
     serializer_class = PhoneTokenObtainPairSerializer
 
 
-class CustomRefreshTokenView(TokenRefreshView):
+class CustomRefreshTokenView(TokenRefreshView): # custom refresh token view
     serializer_class = CustomRefreshTokenSearializer

@@ -8,8 +8,7 @@ from django.utils import timezone
 User = get_user_model()
 
 
-
-class UserRegistrationSerializer(serializers.ModelSerializer):
+class UserRegistrationSerializer(serializers.ModelSerializer): # user registration serializer
     password = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)
 
@@ -36,7 +35,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return user
     
 
-class UserDetailsSearializer(serializers.ModelSerializer):
+class UserDetailsSearializer(serializers.ModelSerializer): # user details serializer
     class Meta:
         model = User
         fields = ('phone_number', 'username', 'email', 'first_name', 'last_name')
@@ -62,7 +61,7 @@ class PhoneTokenObtainPairSerializer(TokenObtainPairSerializer):
         return data
 
 
-class CustomRefreshTokenSearializer(TokenRefreshSerializer):
+class CustomRefreshTokenSearializer(TokenRefreshSerializer): # refresh token serializer 
     def validate(self, attrs):
         refresh_token = self.initial_data.get('refresh')
         refresh_obj = RefreshToken(refresh_token)

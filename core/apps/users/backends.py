@@ -2,7 +2,7 @@ from django.contrib.auth.backends  import ModelBackend
 from django.contrib.auth import get_user_model
 
 
-class PhoneBackend(ModelBackend):
+class PhoneBackend(ModelBackend): # custom authentication backend for phone number
     def authenticate(self, request, phone_number=None, password=None, **kwargs):
         User = get_user_model()
         if phone_number is None:
@@ -15,3 +15,4 @@ class PhoneBackend(ModelBackend):
             if user.check_password(password):
                 return user
         return None
+    
