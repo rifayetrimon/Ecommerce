@@ -64,4 +64,4 @@ class ProductStock(models.Model): # Product Stock model
     quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self, *args, **kwargs):
-        return f"{self.product_variant.product.sku}"
+        return f"{self.product_variant.sku}"
