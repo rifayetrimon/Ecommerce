@@ -3,8 +3,6 @@ from core.apps.products.models import Product, Category, ProductImage, ProductVa
 from core.apps.products.serializers import (
     ProductSerializer,
     CategorySerializer,
-    ProductImageSerializer,
-    ProductVariantSerializer,
 )
 
 
@@ -24,8 +22,8 @@ class ProductByCategoryApiView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-        category_name = self.kwargs.get['category_name']
-        return Product.objects.filter(category_name_iexact=category_name)
+        category_name = self.kwargs.get('category_name')
+        return Product.objects.filter(category__name__iexact=category_name)
     
 
 class ProductDetailApiView(generics.RetrieveAPIView):
